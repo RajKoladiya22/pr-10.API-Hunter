@@ -35,7 +35,7 @@ export const Fatch = () => {
                 <div className="d-flex flex-wrap">
                     {
                         post.map((val) => {
-                            const {title} = val
+                            const {title, body} = val
                             return (
                                 <div className='w-50 p-3'>
                                     <Card style={{ width: '100%', backgroundColor: '#000000' }} className=''>
@@ -46,7 +46,7 @@ export const Fatch = () => {
                                         </Card.Title>
                                         
                                         <Card.Text className='text-secondary'>
-
+                                        {body}
                                         </Card.Text>
                                         <div variant="primary" className="mt-auto">&#8377; Lets go for a <FaBeer />?</div>
                                     </Card.Body>
