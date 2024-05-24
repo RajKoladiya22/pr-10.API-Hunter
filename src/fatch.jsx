@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 import { Header } from './header';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { FaBeer } from 'react-icons/fa';
+import { AiOutlineDislike, AiOutlineLike } from 'react-icons/ai';
 
 export const Fatch = () => {
 
@@ -35,22 +35,28 @@ export const Fatch = () => {
                 <div className="d-flex flex-wrap">
                     {
                         post.map((val) => {
-                            const {title, body} = val
+                            const { title, body, reactions } = val
                             return (
                                 <div className='w-50 p-3'>
                                     <Card style={{ width: '100%', backgroundColor: '#000000' }} className=''>
-                                    <Card.Img variant="top" src="" />
-                                    <Card.Body className='d-flex flex-column'>
-                                        <Card.Title className='text-white'>
-                                        {title}
-                                        </Card.Title>
-                                        
-                                        <Card.Text className='text-secondary'>
-                                        {body}
-                                        </Card.Text>
-                                        <div variant="primary" className="mt-auto">&#8377; Lets go for a <FaBeer />?</div>
-                                    </Card.Body>
-                                </Card>
+                                        <Card.Img variant="top" src="" />
+                                        <Card.Body className='d-flex flex-column'>
+                                            <Card.Title className='text-white'>
+                                                {title}
+                                            </Card.Title>
+
+                                            <Card.Text className='text-secondary'>
+                                                {body}
+                                            </Card.Text>
+                                            <div variant="primary" className="mt-auto">
+                                                <div className='d-flex'>
+                                                    <div className='d-flex align-items-center text-white px-3'>{reactions.likes}<AiOutlineLike className='text-info mx-1' /></div>
+                                                    <div className='d-flex align-items-center text-white'>{reactions.dislikes}<AiOutlineDislike className='text-info mx-1' /></div>
+                                                </div>
+
+                                            </div>
+                                        </Card.Body>
+                                    </Card>
                                 </div>
                             )
                         })
